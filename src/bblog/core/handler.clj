@@ -6,7 +6,8 @@
 
 (defroutes app-routes
   (GET "/" [] "Hello World")
-  (GET "/posts/" [] (posts-controller/index))
+  (GET "/posts" [] (posts-controller/index))
+  (GET "/posts/:id" [id] (posts-controller/show id))
   (route/not-found "Not Found"))
 
 (def app

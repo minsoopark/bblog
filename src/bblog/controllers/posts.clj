@@ -11,3 +11,6 @@
 
 (defn index []
   (render-template "index" {:name "BBarm"}))
+
+(defn show [id]
+  (render-template "post" {:id id}))
