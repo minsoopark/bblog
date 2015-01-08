@@ -1,16 +1,12 @@
 (ns bblog.controllers.posts
   (:require
-    [clostache.parser :as clostache]))
+    [bblog.controllers.base :as base]))
 
-(defn read-template [template-name]
-  (slurp (clojure.java.io/resource
-    (str "views/posts/" template-name ".mustache"))))
-
-(defn render-template [template-file params]
-  (clostache/render (read-template template-file) params))
+(def model-name
+  (str "posts"))
 
 (defn index []
-  (render-template "index" {:name "BBarm"}))
+  (base/render-template model-name "index" {:name "BBarm"}))
 
 (defn show [id]
-  (render-template "post" {:id id}))
+  (base/render-template model-name "post" {:id id}))
